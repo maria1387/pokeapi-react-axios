@@ -12,6 +12,9 @@ const Search = () => {
     attack: "",
     defense: "",
     type: "",
+    ability:'',
+    ability2:'',
+    movimients:'',
   });
 
   const searchPokemon = () => {
@@ -26,9 +29,9 @@ const Search = () => {
           attack: response.data.stats[1].base_stat,
           defense: response.data.stats[2].base_stat,
           type: response.data.types[0].type.name,
-          ability: response.data.abilities.ability,
-
-
+          ability: response.data.abilities[0].ability.name,
+          ability2: response.data.abilities[1].ability.name,
+          movimients:response.data.moves[0].move.name,
 	
 
         });
@@ -60,7 +63,8 @@ const Search = () => {
 			<h4>hp: {pokemon.hp}</h4>
 			<h4>attack: {pokemon.attack}</h4>
 			<h4>defense: {pokemon.defense}</h4>
-			<h4>ability: {pokemon.ability}</h4>
+			<h4>ability: {pokemon.ability}-{pokemon.ability2}</h4>
+      <h4>movimients: {pokemon.movimients}</h4>
           </>
         )}
       </div>
